@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block head_title %}
+{{object}} -
+{% endblock head_title %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="fs-2 border-bottom">{{object}}</h2>
+
+    <div class="card mx-auto col-lg-4 my-5">
+        <h2 class="card-header">{{object.status}}</h2>
+        <div class="card-body">
+            <p>{{object.owner}}</p>
+            <p>{{object.owner.dept}}</p>
+            <p>{{object.owner.phone}}</p>
+        </div>
+        <div class="text-end">
+            <div class="card-footer small text-muted">{{object.updated_at|naturaltime}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

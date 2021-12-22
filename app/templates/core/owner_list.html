@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block head_title %}
+Owners -
+{% endblock head_title %}
+
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="fs-2 border-bottom">Owners</h2>
+    <div class="text-end">
+        <a class="text-dark"
+            href="{% url 'core:owner-create' %}">New owner</a>
+    </div>
+
+    <div class="my-3 col-lg-8 my-5 mx-auto">
+        <form action="{% url 'core:owner-list-search' %}">
+            <input class="form-control form-control-sm rounded-pill"
+                type="search"
+                name="q"
+                id="search-clients"
+                placeholder="Search owner's name">
+        </form>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for object in object_list %}
+        <a class="text-decoration-none text-dark"
+            href="{{object.get_absolute_url}}">
+            <div class="col">
+                <div class="card h-100">
+                    <h2 class="card-header">{{object.name}}</h2>
+                    <div class="card-body">
+                        <h5 class="card-title">{{object.dept}}</h5>
+                        <p class="card-muted small">{{object.phone}}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+
+    </div>
+
+
+</div>
+{% endblock content %}

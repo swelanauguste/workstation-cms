@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block head_title %}
+Reports - 
+{% endblock head_title %}
+
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="fs-2 border-bottom">Reports</h2>
+    <div class="text-end">
+        <a class="text-dark" href="{% url 'core:report-create' %}">New report</a>
+    </div>
+
+    <div class="my-3 col-lg-8 my-5 mx-auto">
+        <form action="{% url 'core:report-list-search' %}">
+            <input class="form-control form-control-sm rounded-pill"
+                type="search"
+                name="q"
+                id="search-clients"
+                placeholder="Search workstation serial number or spiceworks ticket number">
+        </form>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for object in object_list %}
+        <a class="text-decoration-none text-dark" href="{{object.get_absolute_url}}">
+            <div class="col">
+                <div class="card h-100">
+                    <h2 class="card-header">{{object.workstation}}</h2>
+                    <div class="card-body">
+                        <h5 class="card-title">{{object.ticket_no}}</h5>
+                        <p class="card-muted small">{{object.findings}}.</p>
+                        <p class="card-muted small">{{object.recommendations}}.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+
+    </div>
+
+
+</div>
+{% endblock content %}
