@@ -16,6 +16,9 @@ class Owner(TimeStampMixin):
     dept = models.CharField("Department", max_length=255)
     phone = models.CharField(max_length=25)
     slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
+    
+    class Meta:
+        ordering = ["name"]
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -47,6 +50,9 @@ class Workstation(TimeStampMixin):
     )
     owner = models.ForeignKey(Owner, on_delete=models.SET_NULL, null=True, blank=True)
     slug = models.SlugField(max_length=50, unique=True, blank=True, null=True)
+    
+    class Meta:
+        ordering = ["serial_number"]
 
     def save(self, *args, **kwargs):
         if not self.slug:

@@ -24,6 +24,7 @@ Owners -
         </form>
     </div>
 
+    {% include 'pagination.html' %}
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for object in object_list %}
@@ -40,9 +41,9 @@ Owners -
             </div>
         </a>
         {% endfor %}
-
     </div>
-
+    
+    {% include 'pagination.html' %}
 
 </div>
 {% endblock content %}

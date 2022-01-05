@@ -2,7 +2,7 @@
 
 
 {% block head_title %}
-Reports - 
+Reports -
 {% endblock head_title %}
 
 
@@ -10,7 +10,8 @@ Reports -
 <div class="container my-5">
     <h2 class="fs-2 border-bottom">Reports</h2>
     <div class="text-end">
-        <a class="text-dark" href="{% url 'core:report-create' %}">New report</a>
+        <a class="text-dark"
+            href="{% url 'core:report-create' %}">New report</a>
     </div>
 
     <div class="my-3 col-lg-8 my-5 mx-auto">
@@ -23,10 +24,12 @@ Reports -
         </form>
     </div>
 
+        {% include 'pagination.html' %}
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for object in object_list %}
-        <a class="text-decoration-none text-dark" href="{{object.get_absolute_url}}">
+        <a class="text-decoration-none text-dark"
+            href="{{object.get_absolute_url}}">
             <div class="col">
                 <div class="card h-100">
                     <h2 class="card-header">{{object.workstation}}</h2>
@@ -42,7 +45,8 @@ Reports -
         {% endfor %}
 
     </div>
-
+    
+    {% include 'pagination.html' %}
 
 </div>
 {% endblock content %}

@@ -2,3 +2,4 @@
 black
 isort
 pylint-django
+faker==11.1.0

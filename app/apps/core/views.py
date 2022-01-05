@@ -48,7 +48,7 @@ class OwnerDetailView(DetailView):
 
 class OwnerListSearchView(ListView):
     model = Owner
-    paginate_by = 10
+    paginate_by = 9
 
     def get_queryset(self):
         queryset = Owner.objects.all()
@@ -76,7 +76,7 @@ class WorkstationDetailView(DetailView):
 
 class WorkstationListSearchView(ListView):
     model = Workstation
-    paginate_by = 10
+    paginate_by = 9
 
     def get_queryset(self):
         queryset = Workstation.objects.all()
@@ -102,7 +102,7 @@ class WorkstationListSearchView(ListView):
 
 class ReportListSearchView(ListView):
     model = Report
-    paginate_by = 10
+    paginate_by = 9
 
     def get_queryset(self):
         queryset = Report.objects.all()

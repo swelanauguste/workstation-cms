@@ -5,7 +5,7 @@ from . import views
 app_name = "core"
 
 urlpatterns = [
-    path("reports", views.ReportListSearchView.as_view(), name="report-list-search"),
+    path("", views.ReportListSearchView.as_view(), name="report-list-search"),
     path(
         "report-detail-<slug:slug>",
         views.ReportDetailView.as_view(),
